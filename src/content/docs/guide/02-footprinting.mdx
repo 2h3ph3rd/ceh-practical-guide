@@ -1,11 +1,361 @@
 ---
-title: "Module 02: Footprinting and Reconnaissance"
-description: TBD
+title: "Footprinting and Reconnaissance"
+description: Footprinting and Reconnaissance
 slug: guide/footprinting
 ---
 
-Ipsa illo quod rerum sed ut voluptas. 
+import { LinkCard } from "@astrojs/starlight/components";
 
-Quidem voluptatem eos ut aliquam odio quis vel. 
+The first step in the penetration testing process is footprinting and reconnaissance.
 
-Architecto ab expedita accusantium est mollitia alias. Qui quaerat iusto optio facilis omnis ea.
+This phase involves gathering as much information as possible about the target system or network to identify potential vulnerabilities.
+
+Information gathering can be done through various methods, including:
+
+- **Passive Footprinting**: Collecting information without directly interacting with the target system.
+- **Active Footprinting**: Actively probing the target system to gather information.
+
+## Footprinting with search engines
+
+### Google hacking
+
+Google hacking techniques are advanced search techniques that can be used to find specific information on the internet.
+
+<LinkCard
+  title="Google Hacking Cheat Sheet"
+  description="A comprehensive cheat sheet for Google hacking techniques"
+  href="https://sansorg.egnyte.com/dl/f4TCYNMgN6"
+/>
+
+<LinkCard
+  title="Google Hacking Database"
+  description="A database of interesting queries and exploits that can be used to find sensitive information"
+  href="https://www.exploit-db.com/google-hacking-database"
+/>
+
+### Image search engines
+
+Image search engines can be used to find images related to a specific topic or similar to a given image.
+
+Images can contain metadata that can be useful for footprinting.
+
+<LinkCard
+  title="TinEye Reverse Image Search"
+  description="A reverse image search engine that can be used to find similar images or track the origin of an image"
+  href="https://tineye.com/"
+/>
+
+### Video search engines
+
+Video search engines can be used to find videos related to a specific topic or keyword.
+
+Videos like images can contain metadata that can be useful for footprinting.
+
+<LinkCard
+  title="YouTube Metadata"
+  description="A tool to extract metadata from YouTube videos"
+  href="https://mattw.io/youtube-metadata/"
+/>
+
+<LinkCard
+  title="Video Reverser"
+  description="A tool to play video backwards"
+  href="https://www.videoreverser.com/"
+/>
+
+### FTP search engines
+
+FTP search engines can be used to find files and directories on FTP servers.
+
+Like web pages also FTP servers can be indexed by search engines.
+
+<LinkCard
+  title="NAPALM FTP Indexer"
+  description="A search engine for finding files on FTP servers"
+  href="https://www.searchftps.net/"
+/>
+
+<LinkCard
+  title="Freeware Web FTP Search"
+  description="A search engine for finding files on FTP servers"
+  href="https://www.freewareweb.com/ftpsearch.shtml"
+/>
+
+### IoT search engines
+
+IoT search engines can be used to find Internet of Things (IoT) devices connected to the internet.
+
+These search engines can be used to find devices like webcams, routers, and other IoT devices.
+
+<LinkCard title="Shodan" href="https://www.shodan.io/" />
+
+<LinkCard title="Censys" href="https://censys.io/" />
+
+## Footprinting with web services
+
+### Website discovery tools
+
+<LinkCard
+  title="Netcraft"
+  description="A web service that provides information about websites, including hosting information and technologies used"
+  href="https://www.netcraft.com/"
+/>
+
+<LinkCard
+  title="BuiltWith"
+  description="A web service that provides information about the technologies used on a website"
+  href="https://builtwith.com/"
+/>
+
+### People search tools
+
+There are many web services that provide information about people, including social media profiles and contact information.
+
+<LinkCard title="PeekYou" href="https://www.peekyou.com/" />
+
+<LinkCard title="Pipl" href="https://pipl.com/" />
+
+<LinkCard title="BeenVerified" href="https://beenverified.com/" />
+
+<LinkCard title="BeenVerified" href="https://intelius.com/" />
+
+### Dark and deep web searching
+
+The deep web refers to parts of the internet that are not indexed by traditional search engines.
+
+The dark web is a small part of the deep web that is intentionally hidden and inaccessible through standard web browsers.
+
+The dark web is often associated with illegal activities, but it can also be used for legitimate purposes.
+
+<LinkCard
+  title="The Hidden Wiki"
+  description="A directory of hidden services on the Tor network"
+  href="https://thehiddenwiki.org/"
+/>
+
+<LinkCard
+  title="FakeID"
+  description="An online marketplace for fake identification documents"
+  href="https://fakeid.com/"
+/>
+
+<LinkCard
+  title="OnionLand"
+  description="A directory of hidden services on the Tor network"
+  href="https://onionland.io/"
+/>
+
+<LinkCard
+  title="Ahmia"
+  description="A search engine for the Tor network that indexes hidden services"
+  href="https://ahmia.fi/"
+/>
+
+## Footprinting With Social Networks
+
+<LinkCard
+  title="Sherlock"
+  description="A tool to find usernames across many social networks"
+  href="https://github.com/sherlock-project/sherlock"
+/>
+
+<LinkCard
+  title="Followerwonk"
+  description="A tool to analyze Twitter accounts and find information about followers"
+  href="https://followerwonk.com/index.html"
+/>
+
+## Footprinting for web servers
+
+### Ping
+
+It is possible to gather information about a target website using the ping command line utility.
+
+Information such as the IP address, hostname, and response time can be obtained.
+
+```bash
+ping TARGET
+```
+
+<LinkCard
+  title="Operating Systems Can Be Detected Using Ping Command"
+  description="gbhackers.com"
+  href="https://gbhackers.com/operating-systems-can-be-detected-using-ping-command/"
+/>
+
+<LinkCard
+  title="Identify Operating System using Ping Command"
+  description="yeahhub.com"
+  href="https://www.yeahhub.com/identify-operating-system-using-ping-command/"
+/>
+
+### Other tools
+
+- **Web Data Extractor**: A tool for extracting data from websites.
+- **HTTrack Web Site Copier**: A tool for downloading websites to your local machine.
+
+<LinkCard
+  title="Photon"
+  description="A fast crawler designed for OSINT"
+  href="https://github.com/s0md3v/Photon"
+/>
+
+<LinkCard
+  title="Central Ops"
+  description="A web service that provides information about websites, including hosting information and technologies used"
+  href="https://centralops.net/co/"
+/>
+
+<LinkCard
+  title="GRecon"
+  description="An open-source reconnaissance tool that gathers information about a target website"
+  href="https://github.com/aglerj/GRecon"
+/>
+
+<LinkCard
+  title="CeWL"
+  description="A custom word list generator based on the words found on a website"
+  href="https://github.com/digininja/CeWL"
+/>
+
+## Email footprinting
+
+Emails, email addresses, and email servers can be used to gather information about a target.
+
+<LinkCard
+  title="Hunter"
+  description="A web service that provides information about email addresses, including the source of the email address"
+  href="https://hunter.io/"
+/>
+
+<LinkCard
+  title="theHarvester"
+  description="A tool for gathering email addresses and subdomains from various public sources"
+  href="https://github.com/laramies/theHarvester"
+/>
+
+<LinkCard
+  title="Infoga"
+  description="A tool for gathering information about email addresses from different public sources"
+  href="https://github.com/The404Hacking/Infoga"
+/>
+
+<LinkCard
+  title="Mailtrack"
+  description="A tool for tracking email opens and clicks"
+  href="https://mailtrack.io"
+/>
+
+## DNS and Whois footprinting
+
+Whois is a protocol used to query databases that store registered users or assignees of a domain name or an IP address block.
+
+Whois databases are maintained by various organizations, including domain registrars and regional internet registries (RIRs).
+
+DNS (Domain Name System) is a hierarchical naming system used to translate domain names into IP addresses.
+
+<LinkCard
+  title="Whois Lookup"
+  description="A web service that provides information about domain names, including registration information and DNS records"
+  href="https://whois.domaintools.com/"
+/>
+
+<LinkCard
+  title="DNS Dumpster"
+  description="A domain research tool that can discover hosts related to a domain"
+  href="https://dnsdumpster.com/"
+/>
+
+<LinkCard
+  title="DNSRecon"
+  description="A DNS enumeration tool that can be used to gather information about a target's DNS records"
+  href="https://github.com/darkoperator/dnsrecon"
+/>
+
+<LinkCard
+  title="SecurityTrails"
+  description="A web service that provides information about domain names, including registration information and DNS records"
+  href="https://securitytrails.com/"
+/>
+
+<LinkCard
+  title="DNS Checker"
+  description="A free DNS propagation check service to check Domain Name System records "
+  href="https://dnschecker.org/"
+/>
+
+### nslookup
+
+nslookup is a command-line tool used to query DNS servers for information about domain names and IP addresses.
+
+nslookup can be used to gather information about a target's DNS records, including A records, MX records, and NS records.
+
+```bash
+nslookup TARGET
+```
+
+## Network footprinting
+
+Network footprinting is the process of gathering information about a target network, including IP addresses, subnets, and network devices.
+
+<LinkCard
+  title="ARIN"
+  description="A web service that provides information about IP address allocations and registrations"
+  href="https://www.arin.net/"
+/>
+
+### traceroute
+
+traceroute is a command-line tool used to trace the path that packets take from one host to another.
+
+On Linux, the command is `traceroute`, while on Windows, it is `tracert`.
+
+```bash
+traceroute TARGET
+```
+
+<LinkCard
+  title="Traceroute"
+  description="A command-line tool used to trace the path that packets take from one host to another"
+  href="https://www.cloudflare.com/learning/network-layer/what-is-traceroute/"
+/>
+
+## Other footprinting tools
+
+There are many tools that integrate multiple footprinting techniques.
+
+<LinkCard
+  title="Maltego"
+  description="A tool for gathering and analyzing information about a target"
+  href="https://www.maltego.com/"
+/>
+
+<LinkCard
+  title="BillCipher"
+  description="A tool for gathering information about a target using various techniques"
+  href="https://github.com/bahatiphill/BillCipher"
+/>
+
+<LinkCard
+  title="OSRFramework"
+  description="A set of libraries to perform OSINT collection tasks"
+  href="https://github.com/i3visio/osrframework"
+/>
+
+<LinkCard
+  title="Recon-ng"
+  description="A full-featured Web Reconnaissance framework written in Python"
+  href="https://github.com/lanmaster53/recon-ng"
+/>
+
+<LinkCard
+  title="FOCA"
+  description="A tool for gathering information about a target by analyzing metadata in documents"
+  href="https://github.com/ElevenPaths/FOCA"
+/>
+
+<LinkCard
+  title="OSINT Framework"
+  description="A collection of OSINT tools and resources"
+  href="https://osintframework.com/"
+/>
