@@ -1,33 +1,157 @@
 ---
-title: "Module 03: Scanning Networks"
-description: TBD
+title: "Scanning Networks"
+description: Scanning Networks
 slug: guide/scanning
 ---
 
-Ipsa illo quod rerum sed ut voluptas.
+import { LinkCard } from "@astrojs/starlight/components";
 
-Quidem voluptatem eos ut aliquam odio quis vel.
+After getting public information about a target, the next step is to gather as much information as possible about the target's network.
 
-Architecto ab expedita accusantium est mollitia alias. Qui quaerat iusto optio facilis omnis ea.
+This is done by scanning the target's network for active hosts, open ports, and services running on those ports.
 
-## Official lab content
+## Nmap
 
-1. Perform host discovery
-   - Perform host discovery using Nmap
-   - Perform host discovery using Angry IP Scanner
-2. Perform port and service discovery
-   - Perform port and service discovery using MegaPing
-   - Perform port and service discovery using NetScanTools Pro
-   - Perform port scanning using sx tool
-   - Explore various network scanning techniques using Nmap
-   - Explore various network scanning techniques using Hping3
-3. Perform OS discovery
-   - Identify the target system's OS with Time-to-Live (TTL) and TCP window sizes using Wireshark
-   - Perform OS discovery using Nmap Script Engine (NSE)
-   - Perform OS discovery using Unicornscan
-4. Scan beyond IDS and Firewall
-   - Scan beyond IDS/firewall using various evasion techniques
-   - Create custom packets using Colasoft Packet Builder to scan beyond the IDS/firewall
-   - Create custom UDP and TCP packets using Hping3 to scan beyond the IDS/firewall
-5. Perform network scanning using various scanning tools
-   - Scan a target network using Metasploit
+nmap is the most popular open-source network scanner.
+
+It is used to discover hosts and services on a computer network by sending packets and analyzing the responses.
+
+<LinkCard title="Official website" href="https://nmap.org/" />
+<LinkCard title="Official repository" href="https://github.com/nmap/nmap" />
+
+<LinkCard
+  title="Cheat sheet 1"
+  href="https://cdn.comparitech.com/wp-content/uploads/2019/06/Nmap-Cheat-Sheet.pdf"
+/>
+
+<LinkCard
+  title="Cheat sheet 2"
+  href="https://www.stationx.net/nmap-cheat-sheet/"
+/>
+
+<LinkCard
+  title="Cheat sheet 3"
+  href="https://github.com/ekol-x9/nmap-cheatsheet"
+/>
+
+### Host discovery
+
+Host discovery is the process of identifying active devices on a network.
+
+```bash
+# ARP ping scan
+nmap -sn -PR TARGET
+
+# UDP ping scan
+nmap -sn -PU TARGET
+
+# ICMP echo scan
+nmap -sn -PE TARGET
+
+# TCP SYN ping scan
+nmap -sn -PS TARGET
+```
+
+### Port and service discovery
+
+Port and service discovery is the process of identifying open ports and services running on a target.
+
+```bash
+# TCP SYN scan
+nmap -sS TARGET
+
+# TCP connect scan
+nmap -sT TARGET
+
+# TCP ACK scan
+nmap -sA TARGET
+```
+
+### OS discovery
+
+OS discovery is the process of identifying the operating system running on a target by analyzing the responses to various probes.
+
+```bash
+# OS detection
+nmap -O TARGET
+
+# Aggressive scan
+nmap -A TARGET
+```
+
+<LinkCard
+  title="How To Identify Operating System Using TTL Value And Ping Command"
+  description="ostechnix.com"
+  href="https://ostechnix.com/identify-operating-system-ttl-ping/"
+/>
+
+### Scan beyond IDS and Firewall
+
+Scanning beyond an IDS or firewall is the process of bypassing security measures to identify open ports and services.
+
+```bash
+# Split packets into smaller fragments
+nmap -f TARGET
+
+# Port manipulation
+nmap -g 80 TARGET
+
+# Smaller packets
+nmap -mtu 8 TARGET
+
+# Decoy scan
+nmap -D RND:10 TARGET
+
+# Randomize MAC
+nmap --spoof-mac 0 TARGET
+```
+
+## Other tools
+
+<LinkCard
+  title="Hping3"
+  description="A command-line oriented TCP/IP packet assembler/analyzer"
+  href="https://github.com/antirez/hping"
+/>
+
+<LinkCard
+  title="sx"
+  description="A simple command-line tool for scanning networks"
+  href="https://github.com/v-byte-cpu/sx"
+/>
+
+<LinkCard
+  title="Unicornscan"
+  description="A TCP/IP port scanner"
+  href="https://github.com/dneufeld/unicornscan"
+/>
+
+<LinkCard
+  title="Colasoft Packet Builder"
+  description="A free packet generator and network scanner"
+  href="https://www.colasoft.com/packet_builder/"
+/>
+
+<LinkCard
+  title="Proxy Switcher"
+  description="A free proxy scanner and checker"
+  href="https://www.proxyswitcher.com/"
+/>
+
+<LinkCard
+  title="Angry IP Scanner"
+  description="A fast and friendly network scanner for Windows, Linux, and macOS"
+  href="https://angryip.org/"
+/>
+
+<LinkCard
+  title="MegaPing"
+  description="A free ping tool that can ping multiple IP addresses and ranges"
+  href="https://magnetosoft.com/product-megaping/"
+/>
+
+<LinkCard
+  title="NetScanTools Pro"
+  description="A powerful network scanner for Windows"
+  href="https://www.netscantools.com/"
+/>
