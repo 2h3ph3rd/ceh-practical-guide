@@ -1,11 +1,221 @@
 ---
-title: "Module 04: Enumeration"
-description: TBD
+title: "Enumeration"
+description: Enumeration
 slug: guide/enumeration
 ---
 
-Ipsa illo quod rerum sed ut voluptas. 
+import { LinkCard } from "@astrojs/starlight/components";
 
-Quidem voluptatem eos ut aliquam odio quis vel. 
+import { Aside } from "@astrojs/starlight/components";
 
-Architecto ab expedita accusantium est mollitia alias. Qui quaerat iusto optio facilis omnis ea.
+Enumeration is the process of gathering information about a target's services and users.
+
+<Aside type="tip">
+  Nmap with its scripting engine can be used to enumerate most service
+  information.
+</Aside>
+
+## NetBIOS
+
+NetBIOS is a network protocol that allows applications on different computers to communicate over a network.
+
+### nbstat
+
+```bash
+# Display name table
+nbtstat -a TARGET
+
+# Display cache
+nbtstat -c TARGET
+
+# Display information
+net use TARGET
+```
+
+### nmap
+
+```bash
+# NetBIOS name service
+nmap -p 137 --script nbstat TARGET
+```
+
+### Other tools
+
+<LinkCard
+  title="nbtenum"
+  description="NetBIOS enumeration tool"
+  href="https://nbtenum.sourceforge.net/"
+/>
+
+## SNMP
+
+SNMP (Simple Network Management Protocol) is a protocol used to manage and monitor network devices.
+
+It is used to gather information about devices on a network, such as their status, performance, and configuration.
+
+### nmap
+
+```bash
+# SNMP server details
+nmap -p 161 --script snmp-sysdescr TARGET
+
+# SNMP running processes
+nmap -p 161 --script snmp-processes TARGET
+
+# SNMP running applications
+nmap -p 161 --script snmp-win32-software TARGET
+
+# SNMP network interfaces
+nmap -p 161 --script snmp-interfaces TARGET
+```
+
+### snmpwalk
+
+```bash
+# SNMPv1 scan
+snmpwalk -v1 -c public TARGET
+
+# SNMPv2c scan
+snmpwalk -v2c -c public TARGET
+```
+
+### snmp-check
+
+```bash
+snmp-check TARGET
+```
+
+### Other tools
+
+<LinkCard
+  title="SoftPerfect Network Scanner"
+  description="SNMP, HTTP, and SSH enumeration tool"
+  href="https://www.softperfect.com/products/networkscanner/"
+/>
+
+## LDAP
+
+LDAP (Lightweight Directory Access Protocol) is a protocol used to access and manage directory information.
+
+It is used to gather information about users, groups, and other objects in a directory.
+
+### ldapsearch
+
+```bash
+# LDAP enumeration
+ldapsearch -x -h TARGET -s base "(objectClass=*)"
+```
+
+### nmap
+
+```bash
+# LDAP enumeration
+nmap -p 389 --script ldap-search TARGET
+
+# LDAP brute force login
+nmap -p 389 --script ldap-brute --script-args userdb=users.txt,passdb=pass.txt TARGET
+```
+
+### Python
+
+```py
+import ldap3
+
+server = ldap3.Server('TARGET')
+conn = ldap3.Connection(server, user='user', password='pass')
+conn.bind()
+
+conn.search('dc=example,dc=com', '(objectClass=*)')
+for entry in conn.entries:
+    print(entry)
+```
+
+### Other tools
+
+<LinkCard
+  title="Active Directory Explorer"
+  description="Active Directory enumeration tool from Sysinternals"
+  href="https://learn.microsoft.com/en-us/sysinternals/downloads/adexplorer"
+/>
+
+## NFS
+
+NFS (Network File System) is a protocol used to share files over a network.
+
+### showmount
+
+```bash
+# Show NFS shares
+showmount -e TARGET
+```
+
+### Other tools
+
+<LinkCard
+  title="SuperEnum"
+  description="Enumeration tool for NFS and SMB"
+  href="https://github.com/p4pentest/SuperEnum"
+/>
+
+<LinkCard
+  title="RPCScan"
+  description="RPC enumeration tool"
+  href="https://github.com/hegusung/RPCScan"
+/>
+
+## DNS
+
+DNS (Domain Name System) is a protocol used to resolve domain names to IP addresses.
+
+### dig
+
+```bash
+# Enumerate nameservers
+dig ns TARGET
+```
+
+### nslookup
+
+```bash
+# Enumerate nameservers
+nslookup -type=ns TARGET
+```
+
+### Other tools
+
+<LinkCard
+  title="dnsrecon"
+  description="DNS enumeration tool"
+  href="https://github.com/darkoperator/dnsrecon"
+/>
+
+## SMTP
+
+SMTP (Simple Mail Transfer Protocol) is a protocol used to send and receive email.
+
+### nmap
+
+```bash
+# SMTP enumeration
+nmap -p 25 --script smtp-enum TARGET
+```
+
+## Other tools
+
+<LinkCard
+  title="Global Network Inventory"
+  description="Network inventory and monitoring tool"
+  href="https://magnetosoft.com/product-global-network-inventory/"
+/>
+
+<LinkCard
+  title="Advanced IP Scanner"
+  description="A free network scanner for Windows"
+  href="https://www.advanced-ip-scanner.com/"
+/>
+
+<LinkCard
+  title="enum4linux"
+  description="Linux tool for enumerating information from Windows and Samba systems"
+  href="https://github.com/CiscoCXSecurity/enum4linux"
+/>
