@@ -1,11 +1,10 @@
 ---
-title: "Enumeration"
+title: Enumeration
 description: Enumeration
 slug: guide/enumeration
 ---
 
 import { LinkCard } from "@astrojs/starlight/components";
-
 import { Aside } from "@astrojs/starlight/components";
 
 Enumeration is the process of gathering information about a target's services and users.
@@ -45,6 +44,7 @@ nmap -p 137 --script nbstat TARGET
   title="nbtenum"
   description="NetBIOS enumeration tool"
   href="https://nbtenum.sourceforge.net/"
+  target="_blank"
 />
 
 ## SNMP
@@ -91,6 +91,7 @@ snmp-check TARGET
   title="SoftPerfect Network Scanner"
   description="SNMP, HTTP, and SSH enumeration tool"
   href="https://www.softperfect.com/products/networkscanner/"
+  target="_blank"
 />
 
 ## LDAP
@@ -136,6 +137,7 @@ for entry in conn.entries:
   title="Active Directory Explorer"
   description="Active Directory enumeration tool from Sysinternals"
   href="https://learn.microsoft.com/en-us/sysinternals/downloads/adexplorer"
+  target="_blank"
 />
 
 ## NFS
@@ -155,12 +157,14 @@ showmount -e TARGET
   title="SuperEnum"
   description="Enumeration tool for NFS and SMB"
   href="https://github.com/p4pentest/SuperEnum"
+  target="_blank"
 />
 
 <LinkCard
   title="RPCScan"
   description="RPC enumeration tool"
   href="https://github.com/hegusung/RPCScan"
+  target="_blank"
 />
 
 ## DNS
@@ -187,6 +191,7 @@ nslookup -type=ns TARGET
   title="dnsrecon"
   description="DNS enumeration tool"
   href="https://github.com/darkoperator/dnsrecon"
+  target="_blank"
 />
 
 ## SMTP
@@ -206,16 +211,19 @@ nmap -p 25 --script smtp-enum TARGET
   title="Global Network Inventory"
   description="Network inventory and monitoring tool"
   href="https://magnetosoft.com/product-global-network-inventory/"
+  target="_blank"
 />
 
 <LinkCard
   title="Advanced IP Scanner"
   description="A free network scanner for Windows"
   href="https://www.advanced-ip-scanner.com/"
+  target="_blank"
 />
 
 <LinkCard
   title="enum4linux"
   description="Linux tool for enumerating information from Windows and Samba systems"
   href="https://github.com/CiscoCXSecurity/enum4linux"
+  target="_blank"
 />
