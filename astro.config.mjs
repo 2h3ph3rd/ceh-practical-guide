@@ -20,8 +20,8 @@ export default defineConfig({
       ],
       sidebar: [
         {
-          label: "Introduction",
-          slug: "guide/intro",
+          label: "About this guide",
+          slug: "guide/about",
         },
         {
           label: "1. Introduction to Ethical Hacking",
