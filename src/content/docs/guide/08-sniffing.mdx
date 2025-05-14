@@ -1,11 +1,138 @@
 ---
-title: "Module 08: Sniffing"
-description: TBD
+title: 📩 Sniffing
+description: Sniffing is a technique used to monitor network traffic and gather information about the data being transmitted.
 slug: guide/sniffing
+head:
+  - tag: title
+    content: Sniffing
 ---
 
-Ipsa illo quod rerum sed ut voluptas. 
+import { LinkCard } from "@astrojs/starlight/components";
 
-Quidem voluptatem eos ut aliquam odio quis vel. 
+Sniffing is a technique used to monitor network traffic and gather information about the data being transmitted.
 
-Architecto ab expedita accusantium est mollitia alias. Qui quaerat iusto optio facilis omnis ea.
+It can be used for various purposes, including network analysis, troubleshooting, and security assessments.
+
+## Active sniffing
+
+Active sniffing is done by sending packets to the network to elicit responses from devices.
+
+This can help identify devices, protocols, and services running on the network.
+
+<LinkCard
+  title="macof"
+  description="macof is a tool that generates random MAC addresses and sends them to the network to flood the ARP cache of switches."
+  href="https://github.com/WhiteWinterWolf/macof.py"
+  target="_blank"
+/>
+
+<LinkCard
+  title="yersinia"
+  description="Yersinia is a network attack tool that can be used to exploit vulnerabilities in various network protocols."
+  href="https://github.com/tomac/yersinia"
+  target="_blank"
+/>
+
+<LinkCard
+  title="arpspoof"
+  description="arpspoof is a tool that can be used to intercept network traffic by sending ARP replies to devices on the network."
+  href="https://github.com/smikims/arpspoof"
+  target="_blank"
+/>
+
+<LinkCard
+  title="Cain"
+  description="Cain is a password recovery tool that can be used to sniff network traffic and recover passwords."
+  href="https://github.com/xchwarze/Cain"
+  target="_blank"
+/>
+
+<LinkCard
+  title="Technitium MAC Address Changer"
+  description="Technitium MAC Address Changer is a tool that can be used to change the MAC address of a network interface on Windows."
+  href="https://technitium.com/tmac/"
+  target="_blank"
+/>
+
+<LinkCard
+  title="macchanger"
+  description="macchanger is a tool that can be used to change the MAC address of a network interface for Linux."
+  href="https://github.com/alobbs/macchanger"
+  target="_blank"
+/>
+
+## Passive sniffing
+
+Passive sniffing is done by monitoring network traffic without actively sending packets.
+
+This can be done using network taps, port mirroring, or by using a network interface in promiscuous mode.
+
+<LinkCard
+  title="tcpdump"
+  description="tcpdump is a command-line packet analyzer that can be used to capture and analyze network traffic."
+  href="https://www.tcpdump.org/"
+  target="_blank"
+/>
+
+<LinkCard
+  title="Omnipeek Network Analyzer"
+  description="Omnipeek is a network analysis tool that can be used to capture and analyze network traffic."
+  href="https://www.liveaction.com/products/omnipeek/"
+  target="_blank"
+/>
+
+<LinkCard
+  title="Scapy"
+  description="Scapy is a Python-based interactive packet manipulation program and library."
+  href="https://scapy.net/"
+  target="_blank"
+/>
+
+### Wireshark
+
+Wireshark is a popular tool for passive sniffing and can capture and analyze network traffic.
+
+```
+tcp.port eq 25 or icmp
+
+tcp.window_size == 0 && tcp.flags.reset != 1
+
+http.request.uri matches "gl=se$"
+
+udp contains 81:60:03
+```
+
+<LinkCard
+  title="Official website"
+  href="https://www.wireshark.org/"
+  target="_blank"
+/>
+
+<LinkCard
+  title="Official guide for DisplayFilters"
+  href="https://wiki.wireshark.org/DisplayFilters"
+  target="_blank"
+/>
+
+<LinkCard
+  title="Cheat sheet 1"
+  href="https://scadahacker.com/library/Documents/Cheat_Sheets/Networking%20-%20Wireshark%20-%20Display%20Filters%201.pdf"
+  target="_blank"
+/>
+
+<LinkCard
+  title="Cheat sheet 2"
+  href="https://stationx-public-download.s3.us-west-2.amazonaws.com/Wireshark-Cheat-Sheet-v1.pdf"
+  target="_blank"
+/>
+
+## Sniffing detection
+
+Sniffing can be detected by monitoring network traffic for unusual patterns or by using intrusion detection systems (IDS).
+
+<LinkCard
+  title="Capsa Free"
+  description="Capsa Free is a network analyzer that can be used to monitor network traffic and detect sniffing."
+  href="https://www.colasoft.com/capsa-free/"
+  target="_blank"
+/>
