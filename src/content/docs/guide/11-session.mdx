@@ -1,11 +1,47 @@
 ---
-title: "Module 11: Session Hijacking"
-description: TBD
+title: 🍪 Session Hijacking
+description: Session hijacking is a type of attack where an attacker takes control of a user's session after the user has authenticated.
 slug: guide/session
+head:
+  - tag: title
+    content: Session hijacking
 ---
 
-Ipsa illo quod rerum sed ut voluptas. 
+import { LinkCard } from "@astrojs/starlight/components";
 
-Quidem voluptatem eos ut aliquam odio quis vel. 
+Session hijacking is a type of attack where an attacker takes control of a user's session after the user has authenticated.
 
-Architecto ab expedita accusantium est mollitia alias. Qui quaerat iusto optio facilis omnis ea.
+This can be done by stealing session cookies, tokens, or other session identifiers.
+
+## Proxies
+
+Proxies can be used to intercept and modify network traffic, allowing attackers to hijack sessions.
+
+Common proxies are Burp Suite and OWASP ZAP.
+
+<LinkCard
+  title="Burp Suite"
+  href="https://portswigger.net/burp"
+  target="_blank"
+/>
+
+<LinkCard title="OWASP ZAP" href="https://www.zaproxy.org/" target="_blank" />
+
+<LinkCard
+  title="Hetty"
+  href="https://github.com/dstotijn/hetty"
+  target="_blank"
+/>
+
+## MITM
+
+Man in the Middle (MITM) attacks involve intercepting and altering communication between two parties without their knowledge.
+
+This can be done using various techniques, such as ARP spoofing, DNS spoofing, or SSL stripping.
+
+<LinkCard
+  title="bettercap"
+  description="bettercap is a powerful, flexible, and portable tool for network attacks and monitoring."
+  href="https://github.com/bettercap/bettercap"
+  target="_blank"
+/>

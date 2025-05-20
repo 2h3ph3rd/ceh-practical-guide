@@ -1,11 +1,99 @@
 ---
-title: "Module 10: Denial-of-Service"
-description: TBD
+title: 🚫 Denial of Service
+description: Denial of Service (DoS) attacks are a type of attack that aims to make a system or service unavailable to its intended users.
 slug: guide/dos
+head:
+  - tag: title
+    content: Denial of Service
 ---
 
-Ipsa illo quod rerum sed ut voluptas. 
+import { LinkCard } from "@astrojs/starlight/components";
 
-Quidem voluptatem eos ut aliquam odio quis vel. 
+import { Aside } from "@astrojs/starlight/components";
 
-Architecto ab expedita accusantium est mollitia alias. Qui quaerat iusto optio facilis omnis ea.
+Denial of Service (DoS) attacks are a type of attack that aims to make a system or service unavailable to its intended users.
+
+This is typically achieved by overwhelming the target with a flood of illegitimate requests, causing it to slow down or crash.
+
+When multiple systems are used to perform a DoS attack, it is usually referred to as a Distributed Denial of Service (DDoS) attack.
+
+<LinkCard
+  title="raven-storm"
+  description="raven-storm is a tool for performing DoS attacks on web applications."
+  href="https://github.com/Tmpertor/Raven-Storm"
+  target="_blank"
+/>
+
+<LinkCard
+  title="HOIC"
+  description="HOIC (High Orbit Ion Cannon) is a network stress testing tool that can be used to perform DoS attacks."
+  href="https://sourceforge.net/projects/high-orbit-ion-cannon/"
+  target="_blank"
+/>
+
+<LinkCard
+  title="LOIC"
+  description="LOIC (Low Orbit Ion Cannon) is a network stress testing tool that can be used to perform DoS attacks."
+  href="https://sourceforge.net/projects/loic/"
+  target="_blank"
+/>
+
+<Aside type="tip">
+  HOIC was developed as an advanced version of LOIC and is capable of performing
+  more sophisticated attacks.
+</Aside>
+
+## Metasploit
+
+Metasploit has several modules that can be used to perform DoS attacks.
+
+```sh
+msfconsole
+use auxiliary/dos/tcp/synflood
+use auxiliary/dos/http/slowloris
+```
+
+## hping3
+
+hping3 is a command-line tool that can be used to generate TCP/IP packets and perform various network attacks, including DoS attacks.
+
+```sh
+hping3 -S TARGET -p PORT --flood
+```
+
+<LinkCard
+  title="hping3"
+  href="https://www.kali.org/tools/hping3/"
+  target="_blank"
+/>
+
+## DoS Detection
+
+There are several tools and techniques that can be used to detect DoS attacks.
+
+<LinkCard
+  title="Anti-DDoS Guardian"
+  href="https://www.anti-ddos.net/"
+  target="_blank"
+/>
+
+<LinkCard
+  title="DOSarrest's DDOS Protection service"
+  description="Now part of Link11"
+  href="https://www.dosarrest.com/"
+  target="_blank"
+/>
+
+<LinkCard title="Link11" href="https://www.link11.com/" target="_blank" />
+
+<LinkCard
+  title="DDoS-Guard"
+  href="https://www.ddos-guard.net/"
+  target="_blank"
+/>
+
+<LinkCard
+  title="Cloudflare"
+  href="https://www.cloudflare.com/"
+  target="_blank"
+/>
