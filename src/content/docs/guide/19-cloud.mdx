@@ -1,11 +1,79 @@
 ---
 title: ☁️ Cloud Computing
-description: TBD
+description: Cloud computing is the delivery of computing services over the internet, allowing users to access and use resources such as servers, storage, databases, networking, software, and analytics without the need for on-premises infrastructure.
 slug: guide/cloud
+head:
+  - tag: title
+    content: Cloud Computing
 ---
 
-Ipsa illo quod rerum sed ut voluptas.
+import { LinkCard } from "@astrojs/starlight/components";
 
-Quidem voluptatem eos ut aliquam odio quis vel.
+Cloud computing is the delivery of computing services over the internet, allowing users to access and use resources such as servers, storage, databases, networking, software, and analytics without the need for on-premises infrastructure.
 
-Architecto ab expedita accusantium est mollitia alias. Qui quaerat iusto optio facilis omnis ea.
+Because cloud computing services are still based on physical hardware, they are vulnerable to the same types of attacks as traditional computing environments. This includes attacks on the underlying infrastructure, such as servers and storage devices, as well as attacks on the applications and data stored in the cloud.
+
+## S3 Bucket Enumeration
+
+S3 buckets are a popular storage solution provided by Amazon Web Services (AWS).
+
+They are often used to store and share data, making them a common target for attackers.
+
+S3 bucket enumeration is the process of discovering and accessing S3 buckets that may contain sensitive data or misconfigured permissions.
+
+<LinkCard
+  title="lazys3"
+  description="lazys3 is a tool for lazy S3 bucket enumeration and exploitation."
+  href="https://github.com/nahamsec/lazys3"
+  target="_blank"
+/>
+
+<LinkCard
+  title="S3Scanner"
+  description="S3Scanner is a tool for scanning and enumerating Amazon S3 buckets."
+  href="https://github.com/sa7mon/S3Scanner"
+  target="_blank"
+/>
+
+<LinkCard
+  title="S3BucketList"
+  description="S3BucketList is a browser extension for enumerating and exploiting Amazon S3 buckets."
+  href="https://chromewebstore.google.com/detail/s3bucketlist/anngjobjhcbancaaogmlcffohpmcniki"
+  target="_blank"
+/>
+
+## AWS CLI
+
+The AWS Command Line Interface (CLI) is a powerful tool for managing AWS services from the command line.
+
+It allows users to automate tasks, manage resources, and perform various operations on AWS services.
+
+```bash
+# Configure a new AWS CLI profile
+aws configure --profile PROFILE_NAME
+
+# List all S3 buckets
+aws s3 ls
+
+# List all objects in a specific S3 bucket
+aws s3 ls s3://BUCKET_NAME
+
+# Download a file from an S3 bucket
+aws s3 cp s3://BUCKET_NAME/FILE_NAME .
+
+# Get secret keys from AWS CLI
+aws configure list
+
+# Get available secrets
+aws secretsmanager list-secrets
+
+# Get secret value
+aws secretsmanager get-secret-value --secret-id SECRET_ID
+
+# Get IAM user information
+aws iam list-users
+aws iam get-user
+aws iam list-access-keys
+aws iam get-access-key-last-used --access-key-id ACCESS_KEY_ID
+aws iam list-groups
+```

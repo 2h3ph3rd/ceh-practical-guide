@@ -1,6 +1,6 @@
 ---
 title: 💻 Hacking Web Applications
-description: TBD
+description: Hacking web applications involves exploiting vulnerabilities in web applications, such as SQL injection, cross-site scripting (XSS), and insecure authentication mechanisms. This can lead to unauthorized access, data breaches, and other security incidents.
 slug: guide/apps
 head:
   - tag: title
@@ -9,8 +9,144 @@ head:
 
 import { LinkCard } from "@astrojs/starlight/components";
 
-Ipsa illo quod rerum sed ut voluptas.
+Hacking web applications involves exploiting vulnerabilities in web applications, such as SQL injection, cross-site scripting (XSS), and insecure authentication mechanisms. This can lead to unauthorized access, data breaches, and other security incidents.
 
-Quidem voluptatem eos ut aliquam odio quis vel.
+Web applications are the most common target for attackers, as they often handle sensitive data and are accessible over the internet.
 
-Architecto ab expedita accusantium est mollitia alias. Qui quaerat iusto optio facilis omnis ea.
+## Footprinting
+
+Web application footprinting is the process of gathering information about a web application to identify potential vulnerabilities and attack vectors.
+
+There are several tools and techniques for automating scanning and fingerprinting web applications:
+
+- nmap can be used to obtain additional information about a target.
+- ZAP provides a powerful scanner to identify vulnerabilities in web applications.
+
+```sh
+# Use nmap to enumerate services and versions
+nmap -sV -p 80 --script http-enum TARGET
+
+# Enumerate files and directories
+gobuster dir -u http://TARGET -w /usr/share/wordlists/dirb/common.txt
+```
+
+### Automated Scanning
+
+<LinkCard
+  title="WhatWeb"
+  href="https://github.com/urbanadventurer/whatweb"
+  target="_blank"
+/>
+
+<LinkCard
+  title="Nikto"
+  description="Nikto is a web server scanner that tests for various vulnerabilities and misconfigurations."
+  href="https://cirt.net/Nikto2"
+  target="_blank"
+/>
+
+<LinkCard
+  title="NStalker"
+  description="NStalker is a web application security scanner that helps identify vulnerabilities in web applications."
+  href="http://www.nstalker.com/alliance/"
+  target="_blank"
+/>
+
+<LinkCard title="Vega" href="https://subgraph.com/vega/" target="_blank" />
+
+<LinkCard
+  title="ClickjackPoc"
+  description="Seamlessly Detect and Construct Exploit POCs for ClickJacking Vulnerability using this Automated tool"
+  href="https://github.com/Raiders0786/ClickjackPoc"
+  target="_blank"
+/>
+
+<LinkCard
+  title="PwnXSS"
+  description="A powerful XSS scanner made in python 3.7"
+  href="https://github.com/andripwn/PwnXSS"
+  target="_blank"
+/>
+
+<LinkCard
+  title="WPScan"
+  description="A vulnerability scanner for WordPress"
+  href="https://wpscan.com/"
+  target="_blank"
+/>
+
+### Enumeration
+
+<LinkCard
+  title="gobuster"
+  href="https://github.com/OJ/gobuster"
+  target="_blank"
+/>
+
+<LinkCard
+  title="dirsearch"
+  href="https://github.com/maurosoria/dirsearch"
+  target="_blank"
+/>
+
+<LinkCard
+  title="wfuzz"
+  href="https://github.com/xmendez/wfuzz"
+  target="_blank"
+/>
+
+## Common vulnerabilities
+
+There are several vulnerabilities that can be exploited in web applications based on the architecture and technology used.
+
+### SQL Injection
+
+SQL injection is a code injection technique that exploits a vulnerability in an application's software by manipulating SQL queries. This can allow attackers to view, modify, or delete data in the database.
+
+```txt
+' OR 1=1 --
+```
+
+### XSS
+
+Cross-site scripting (XSS) is a vulnerability that allows attackers to inject malicious scripts into web pages viewed by other users.
+
+This can lead to session hijacking, defacement, or redirecting users to malicious sites.
+
+```html
+<script>
+  alert("XSS");
+</script>
+```
+
+### CSRF
+
+Cross-Site Request Forgery (CSRF) is an attack that tricks the user into executing unwanted actions on a different site where they are authenticated.
+This can lead to unauthorized actions being performed on behalf of the user, such as changing account settings or making purchases.
+
+```html
+<form action="http://example.com/transfer" method="POST">
+  <input type="hidden" name="amount" value="1000" />
+  <input type="submit" value="Transfer Money" />
+</form>
+```
+
+### RCE
+
+Remote Code Execution (RCE) is a vulnerability that allows an attacker to execute arbitrary code on a remote server or system.
+
+This can lead to complete control over the target system and access to sensitive data.
+
+```sh
+curl -X POST -d "cmd=whoami" http://example.com/execute
+```
+
+### LFI
+
+Local File Inclusion (LFI) is a vulnerability that allows an attacker to include files on a server through the web browser.
+This can lead to unauthorized access to sensitive files and information.
+
+```sh
+curl -X GET "http://example.com/index.php?page=../../../../etc/passwd"
+curl -X GET "http://example.com/index.php?page=%2E%2E%2F%2E%2E%2F%2E%2E%2Fetc%2Fpasswd"
+```

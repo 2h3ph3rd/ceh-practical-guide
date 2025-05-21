@@ -1,11 +1,146 @@
 ---
 title: 🔑 Cryptography
-description: TBD
+description: Cryptography is the practice and study of techniques for securing communication and information from adversaries.
 slug: guide/crypto
+head:
+  - tag: title
+    content: Cryptography
 ---
 
-Ipsa illo quod rerum sed ut voluptas.
+import { LinkCard } from "@astrojs/starlight/components";
 
-Quidem voluptatem eos ut aliquam odio quis vel.
+Cryptography is the practice and study of techniques for securing communication and information from adversaries.
 
-Architecto ab expedita accusantium est mollitia alias. Qui quaerat iusto optio facilis omnis ea.
+It involves the use of mathematical algorithms to encrypt and decrypt data, ensuring confidentiality, integrity, and authenticity.
+
+Cryptography is essential for protecting sensitive information, such as passwords, credit card numbers, and personal data, from unauthorized access and tampering.
+
+It is widely used in various applications, including secure communication, digital signatures, and secure storage.
+
+## Hashing Algorithms
+
+Hashing algorithms are cryptographic functions that convert data into a fixed-size string of characters, which is typically a hash value.
+
+Hashing is a one-way process, meaning that it is not possible to reverse the hash value back to the original data.
+
+Hashing is commonly used for data integrity checks, password storage, and digital signatures.
+
+```bash
+# Hash a file using SHA-256
+sha256sum file.txt
+
+# Hash a password using bcrypt
+echo -n "password" | bcrypt
+
+# Identify hashing algorithm used
+hashid -m hash_value
+
+# Crack a hash using wordlist
+hashcat -m 0 -a 0 hash_value wordlist.txt
+```
+
+<LinkCard
+  title="Hashcat"
+  description="Hashcat is a password recovery tool that uses GPU acceleration to crack hashes."
+  href="https://hashcat.net/hashcat/"
+  target="_blank"
+/>
+
+<LinkCard
+  title="hashid"
+  description="hashid is a tool to identify the hashing algorithm used in a hash value."
+  href="http://github.com/psypanda/hashid"
+  target="_blank"
+/>
+
+<LinkCard
+  title="John the Ripper"
+  description="John the Ripper is a fast password cracker that supports various hashing algorithms."
+  href="https://www.openwall.com/john/"
+  target="_blank"
+/>
+
+<LinkCard
+  title="CrackStation"
+  description="CrackStation is a free online service for cracking password hashes."
+  href="https://crackstation.net/"
+  target="_blank"
+/>
+
+<LinkCard
+  title="Hashes.com"
+  description="Hashes.com is a free online service for cracking password hashes."
+  href="https://hashes.com/en/decrypt/hash"
+  target="_blank"
+/>
+
+<LinkCard
+  title="HashCalc"
+  description="HashCalc is a Windows application for calculating hash values of files."
+  href="https://hashcalc.download.it/"
+  target="_blank"
+/>
+
+<LinkCard
+  title="HashMyFiles"
+  description="HashMyFiles is a small utility that allows you to calculate the MD5 and SHA1 hashes of files."
+  href="https://www.nirsoft.net/utils/hash_my_files.html"
+  target="_blank"
+/>
+
+## Email encryption
+
+Email encryption is the process of encrypting email messages to protect their content from unauthorized access.
+
+It ensures that only the intended recipient can read the message, even if it is intercepted during transmission.
+
+Email encryption can be achieved using various methods, including symmetric and asymmetric encryption.
+
+<LinkCard
+  title="RMail"
+  description="RMail is a secure email service that provides end-to-end encryption for email messages."
+  href="https://rmail.com/"
+  target="_blank"
+/>
+
+## Disk encryption
+
+Disk encryption is the process of encrypting the entire contents of a disk or storage device to protect data from unauthorized access.
+
+It ensures that data is unreadable without the correct decryption key, even if the device is lost or stolen.
+
+<LinkCard
+  title="VeraCrypt"
+  description="VeraCrypt is a free and open-source disk encryption software that provides on-the-fly encryption."
+  href="https://veracrypt.io/en/Home.html"
+  target="_blank"
+/>
+
+<LinkCard
+  title="Rohos Disk Encryption"
+  description="Rohos Disk Encryption is a disk encryption software that provides strong encryption for files and folders."
+  href="https://rohos.com/products/rohos-disk-encryption/"
+  target="_blank"
+/>
+
+## Cryptanalysis
+
+Cryptanalysis is the study of analyzing and breaking cryptographic systems to uncover hidden information.
+
+It involves the use of mathematical techniques and algorithms to find weaknesses in cryptographic systems and exploit them.
+
+Cryptanalysis is an essential part of cryptography, as it helps identify vulnerabilities and improve the security of cryptographic systems.
+
+<LinkCard
+  title="Cyptool"
+  description="Cryptool is a free educational software for cryptography and cryptanalysis."
+  href="https://www.cryptool.org/en/"
+  target="_blank"
+/>
+
+<LinkCard
+  title="AlphaPeeler"
+  description="AlphaPeeler is a free educational software for cryptography and cryptanalysis."
+  href="https://sourceforge.net/projects/alphapeeler/"
+  target="_blank"
+/>
