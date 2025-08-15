@@ -4,6 +4,7 @@ import starlight from "@astrojs/starlight";
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://2h3ph3rd.github.io/ceh-practical-guide",
   integrations: [
     starlight({
       title: "CEH Practical Guide",
