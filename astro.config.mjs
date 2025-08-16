@@ -12,6 +12,16 @@ export default defineConfig({
         src: "./src/assets/logo.webp",
       },
       favicon: "/favicon.ico",
+      head: [
+        {
+          tag: "script",
+          attrs: {
+            src: "https://cdn.counter.dev/script.js",
+            "data-id": "ee861c10-3db6-47bb-98d5-e2deab035a89",
+            "data-utcoffset": "2",
+          },
+        },
+      ],
       social: [
         {
           icon: "github",
