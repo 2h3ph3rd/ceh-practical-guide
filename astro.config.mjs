@@ -31,6 +31,13 @@ export default defineConfig({
             content: "noindex",
           },
         },
+        {
+          tag: "meta",
+          attrs: {
+            name: "google-site-verification",
+            content: "h--DYs3cNdxOrjG1O32Y1V-qvMX1RhUxF9wLFe_sBG0",
+          },
+        },
       ],
       social: [
         {
